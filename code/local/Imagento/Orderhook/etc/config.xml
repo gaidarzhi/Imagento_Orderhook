@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+<modules>
+    <Imagento_Orderhook>
+        <version>1.0</version>
+    </Imagento_Orderhook>
+</modules>
+<global>
+    <models>            
+        <orderhook>
+            <class>Imagento_Orderhook_Model</class>
+        </orderhook>
+    </models>
+    <events>
+        <sales_order_save_after>
+            <observers>
+                <auto_invoice_order>
+                    <type>singleton</type>
+                    <class>Imagento_Orderhook_Model_Observer</class>
+                    <method>implementOrderStatus</method>
+                </auto_invoice_order>
+            </observers>
+        </sales_order_save_after>
+    
+    </events>
+
+</global>
+</config>
